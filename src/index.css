@@ -1,0 +1,187 @@
+/*
+  This file contains global styles, color variables, and keyframe animations 
+  needed for the moving background and the card glow effect.
+*/
+:root {
+  --primary-bg: #000000; /* Black */
+  --secondary-accent: #fd00ff; /* Purple */
+  --text-light: #f0f4ff; /* Bright white-blue */
+  --text-secondary: #c7d2fe; /* Lighter purple-blue */
+  --text-muted: #94a3b8; /* Muted gray-blue */
+  --card-bg: #0a0a0a; /* Dark cards */
+  --glow-color: #ec4899; /* Pink for glow */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--text-light);
+  overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-light);
+}
+
+h1 {
+  color: #ffffff;
+}
+
+h2 {
+  color: var(--text-light);
+}
+
+h3 {
+  color: var(--text-secondary);
+}
+
+.container {
+  max-width: 1280px;
+}
+
+/* ---------------------------------------------------- */
+/* BACKGROUND PARTICLES */
+/* ---------------------------------------------------- */
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+
+
+/* ---------------------------------------------------- */
+/* CARD ELECTRIC BORDER GLOW (UPDATED) */
+/* ---------------------------------------------------- */
+
+/* NEW: These properties are needed to animate the gradient angle */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+
+.glow-card-wrapper {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 2px;
+  --angle: 0deg;
+  background: conic-gradient(
+    from var(--angle),
+    transparent 25%, 
+    var(--secondary-accent), 
+    var(--glow-color), 
+    var(--secondary-accent),
+    transparent 75%
+  );
+  animation: rotate 4s linear infinite;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.08), 0 2px 4px rgba(236, 72, 153, 0.05);
+}
+
+.glow-card {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 2rem;
+  border-radius: calc(1rem - 2px); 
+  height: 100%;
+  
+}
+
+.glow-card-wrapper:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(168, 85, 247, 0.25), 0 10px 20px rgba(236, 72, 153, 0.15);
+}
+
+/* ---------------------------------------------------- */
+/* ENHANCED ANIMATIONS & EFFECTS */
+/* ---------------------------------------------------- */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in-up 0.8s ease-out;
+}
+
+.animate-fade-in-delay {
+  animation: fade-in-up 0.8s ease-out 0.2s both;
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Text color variants */
+.text-primary {
+  color: var(--text-light);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Button enhancements */
+a[href="#contact"], button[type="submit"] {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  transition: all 0.3s ease;
+}
+
+a[href="#contact"]::before, button[type="submit"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+a[href="#contact"]:hover::before, button[type="submit"]:hover::before {
+  left: 0;
+}
+
+a[href="#contact"]:hover, button[type="submit"]:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
+}
