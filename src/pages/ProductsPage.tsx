@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import GlowCardWrapper from '../components/UI/GlowCardWrapper';
+import assamprepLogo from '../assets/assamprep-logo.png';
 
 interface PortfolioItem {
   iconClass: string;
@@ -45,16 +46,47 @@ const ProductsPage: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative z-10 py-16 md:py-24 px-4">
-      <div className="container mx-auto">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16">Our <span className="text-[var(--secondary-accent)]">Products</span></h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {portfolioData.map((project, index) => (
-            <PortfolioCard key={index} {...project} />
-          ))}
+    <>
+      <section className="relative z-10 py-16 md:py-24 px-4">
+        <div className="container mx-auto">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16">Our <span className="text-[var(--secondary-accent)]">Products</span></h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {portfolioData.map((project, index) => (
+              <PortfolioCard key={index} {...project} />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section className="relative z-10 py-16 md:py-24 px-4">
+        <div className="container mx-auto">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16">Our <span className="text-[var(--secondary-accent)]">Clients</span></h2>
+          <div className="flex justify-center">
+            <div className="w-full sm:w-1/2 lg:w-1/4">
+              <GlowCardWrapper>
+                <div className="glow-card p-6 flex flex-col items-center text-center">
+                  <div className="mb-6">
+                    <img src={assamprepLogo} alt="AssamPrep Logo" className="w-32 h-32 object-contain" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">AssamPrep</h3>
+                  <p className="text-gray-400 leading-relaxed mb-6">Education fully functional dynamic app with many pages working, splash screen etc. It's a mock test app with functions like subject chapters, tests, and more.</p>
+                  <div className="flex gap-4 justify-center">
+                    <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-[var(--secondary-accent)] text-white rounded-lg hover:bg-violet-700 transition">
+                      <i className="fa-solid fa-globe"></i>
+                      <span>Visit Website</span>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                      <i className="fa-brands fa-google-play"></i>
+                      <span>Play Store</span>
+                    </a>
+                  </div>
+                </div>
+              </GlowCardWrapper>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 
