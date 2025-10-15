@@ -14,7 +14,7 @@ const Header: React.FC = () => {
     }
   }, [isMenuOpen]);
   
-  const navItems = ['Services', 'Portfolio', 'About Us', 'Contact'];
+  const navItems = ['Services', 'Our Products', 'About Us', 'Contact'];
 
   return (
     <header className="relative z-50 bg-black/90 backdrop-blur-sm shadow-lg sticky top-0 border-b border-gray-800">

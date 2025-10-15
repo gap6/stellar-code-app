@@ -127,10 +127,10 @@ const App: React.FC = () => {
             </div>
           </section>
 
-          {/* Portfolio Section */}
-          <section id="portfolio" className="relative z-10 py-16 md:py-24 px-4 backdrop-blur-[2px] bg-black/5">
+          {/* Our Products Section */}
+          <section id="our-products" className="relative z-10 py-16 md:py-24 px-4 backdrop-blur-[2px] bg-black/5">
             <div className="container mx-auto">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16">Our <span className="text-[var(--secondary-accent)]">Portfolio</span></h2>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16">Our <span className="text-[var(--secondary-accent)]">Products</span></h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {portfolioData.map((project, index) => (
                   <PortfolioCard key={index} {...project} />
