@@ -71,14 +71,14 @@ const ProductsPage: React.FC = () => {
                   <h3 className="text-2xl font-bold mb-4">AssamPrep</h3>
                   <p className="text-gray-400 leading-relaxed mb-6">Education fully functional dynamic app with many pages working, splash screen etc. It's a mock test app with functions like subject chapters, tests, and more.</p>
                   <div className="flex gap-4 justify-center">
-                    <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-[var(--secondary-accent)] text-white rounded-lg hover:bg-violet-700 transition">
+                    <button onClick={(e) => e.preventDefault()} className="flex items-center gap-2 px-4 py-2 bg-[var(--secondary-accent)] text-white rounded-lg hover:bg-violet-700 transition cursor-pointer">
                       <i className="fa-solid fa-globe"></i>
                       <span>Visit Website</span>
-                    </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                    </button>
+                    <button onClick={(e) => e.preventDefault()} className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition cursor-pointer">
                       <i className="fa-brands fa-google-play"></i>
                       <span>Play Store</span>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </GlowCardWrapper>
