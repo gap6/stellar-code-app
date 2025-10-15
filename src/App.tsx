@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
-import PlexusBackground from './components/UI/PlexusBackground';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import ProductsPage from './pages/ProductsPage';
@@ -13,7 +12,6 @@ const App: React.FC = () => {
   return (
     <BrowserRouter basename="/stellar-code-app">
       <div className="min-h-screen flex flex-col bg-black text-white relative">
-        <PlexusBackground />
         <Header />
         <div className="relative z-10 flex-grow">
           <main>
