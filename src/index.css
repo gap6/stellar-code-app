@@ -161,11 +161,16 @@ html {
 a[href="#contact"], button[type="submit"] {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  
   transition: all 0.3s ease;
 }
+/* CTA Button styling */
+.cta-button {
+  position: relative;
+  overflow: hidden;
+}
 
-a[href="#contact"]::before, button[type="submit"]::before {
+.cta-button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -177,11 +182,32 @@ a[href="#contact"]::before, button[type="submit"]::before {
   z-index: -1;
 }
 
-a[href="#contact"]:hover::before, button[type="submit"]:hover::before {
+.cta-button:hover::before {
   left: 0;
 }
 
-a[href="#contact"]:hover, button[type="submit"]:hover {
+.cta-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
+}
+
+section a[href="#contact"]::before, button[type="submit"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+section a[href="#contact"]:hover::before, button[type="submit"]:hover::before {
+  left: 0;
+}
+
+section a[href="#contact"]:hover, button[type="submit"]:hover {
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
 }

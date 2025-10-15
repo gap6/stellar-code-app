@@ -137,7 +137,7 @@ const App: React.FC = () => {
                 ))}
               </div>
               <div className="text-center mt-12">
-                <a href="#" className="inline-block bg-[var(--secondary-accent)] text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-violet-700 transition duration-300 shadow-lg transform hover:scale-105">
+                <a href="#" className="cta-button inline-block bg-[var(--secondary-accent)] text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-violet-700 transition duration-300 shadow-lg transform hover:scale-105">
                   View All Projects
                 </a>
               </div>
