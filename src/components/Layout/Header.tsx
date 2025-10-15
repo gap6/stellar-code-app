@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import AuthModal from '../UI/AuthModal';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
   useEffect(() => {
     if ((window as any).lucide) {
@@ -24,7 +26,7 @@ const Header: React.FC = () => {
           <span className="text-[var(--secondary-accent)]">Stellar</span>Code
         </Link>
 
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex space-x-8 items-center">
           {navItems.map(item => (
             <Link 
               key={item.path} 
@@ -34,6 +36,12 @@ const Header: React.FC = () => {
               {item.label}
             </Link>
           ))}
+          <button 
+            onClick={() => setIsAuthModalOpen(true)}
+            className="text-lg font-medium hover:text-[var(--secondary-accent)] transition duration-200"
+          >
+            Login
+          </button>
         </nav>
 
         <button 
@@ -56,8 +64,16 @@ const Header: React.FC = () => {
               {item.label}
             </Link>
           ))}
+          <button 
+            onClick={() => { setIsAuthModalOpen(true); setIsMenuOpen(false); }}
+            className="text-lg font-medium hover:bg-gray-900 p-2 rounded-md transition duration-150 text-left"
+          >
+            Login
+          </button>
         </div>
       </nav>
+
+      <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
     </header>
   );
 };
