@@ -1,13 +1,6 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Header from './components/Layout/Header';
-import Footer from './components/Layout/Footer';
-import GlowCardWrapper from './components/UI/GlowCardWrapper';
-import PlexusBackground from './components/UI/PlexusBackground';
-import ServicesPage from './pages/ServicesPage';
-import ProductsPage from './pages/ProductsPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
+import { Link } from 'react-router-dom';
+import GlowCardWrapper from '../components/UI/GlowCardWrapper';
 
 interface Service {
   icon: string;
@@ -87,7 +80,7 @@ const HomePage: React.FC = () => {
           <p className="text-xl md:text-2xl text-gray-400 mb-10 max-w-3xl mx-auto animate-fade-in-delay">
             We build cutting-edge software, stunning apps, and powerful websites that propel your business forward.
           </p>
-          <Link to="/contact" className="cta-button inline-block bg-[var(--secondary-accent)] text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-violet-700 transition duration-300 shadow-lg transform hover:scale-105">
+          <Link to="/contact" className="inline-block bg-[var(--secondary-accent)] text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-violet-700 transition duration-300 shadow-lg transform hover:scale-105">
             Let's Talk!
           </Link>
         </div>
@@ -100,11 +93,6 @@ const HomePage: React.FC = () => {
             {servicesData.map((service, index) => (
               <ServiceCard key={index} {...service} />
             ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link to="/services" className="cta-button inline-block bg-[var(--secondary-accent)] text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-violet-700 transition duration-300 shadow-lg transform hover:scale-105">
-              View All Services
-            </Link>
           </div>
         </div>
       </section>
@@ -179,27 +167,4 @@ const HomePage: React.FC = () => {
   );
 };
 
-const App: React.FC = () => {
-  return (
-    <BrowserRouter>
-      <div className="min-h-screen flex flex-col bg-black text-white relative">
-        <PlexusBackground />
-        <Header />
-        <div className="relative z-10 flex-grow">
-          <main>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/services" element={<ServicesPage />} />
-              <Route path="/products" element={<ProductsPage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-            </Routes>
-          </main>
-        </div>
-        <Footer />
-      </div>
-    </BrowserRouter>
-  );
-};
-
-export default App;
+export default HomePage;
