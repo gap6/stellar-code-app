@@ -80,8 +80,8 @@ const HomePage: React.FC = () => {
           <p className="text-xl md:text-2xl text-gray-400 mb-10 max-w-3xl mx-auto animate-fade-in-delay">
             We build cutting-edge software, stunning apps, and powerful websites that propel your business forward.
           </p>
-          <Link to="/contact" className="inline-block bg-[var(--secondary-accent)] text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-violet-700 transition duration-300 shadow-lg transform hover:scale-105">
-            Let's Talk!
+          <Link to="/contact" className="cta-button inline-block bg-[var(--secondary-accent)] text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-violet-700 transition duration-300 shadow-lg transform hover:scale-105">
+               Let's Talk!
           </Link>
         </div>
       </section>
@@ -93,6 +93,11 @@ const HomePage: React.FC = () => {
             {servicesData.map((service, index) => (
               <ServiceCard key={index} {...service} />
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link to="/services" className="cta-button inline-block bg-[var(--secondary-accent)] text-white font-bold py-4 px-10 rounded-full text-xl hover:bg-violet-700 transition duration-300 shadow-lg transform hover:scale-105">
+              View All Services
+            </Link>
           </div>
         </div>
       </section>

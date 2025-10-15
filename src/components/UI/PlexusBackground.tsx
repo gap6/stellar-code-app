@@ -36,13 +36,10 @@ const PlexusBackground: React.FC = () => {
         if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = 'rgba(168, 85, 247, 0.6)';
         ctx.beginPath();
-        ctx.arc(p.x, p.y, 8, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(168, 85, 247, 0.8)';
+        ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(168, 85, 247, 0.9)';
         ctx.fill();
-        ctx.shadowBlur = 0;
       });
 
       for (let i = 0; i < particles.length; i++) {
@@ -55,8 +52,8 @@ const PlexusBackground: React.FC = () => {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(168, 85, 247, ${0.5 * (1 - distance / maxDistance)})`;
-            ctx.lineWidth = 2;
+            ctx.strokeStyle = `rgba(168, 85, 247, ${0.4 * (1 - distance / maxDistance)})`;
+            ctx.lineWidth = 1.5;
             ctx.stroke();
           }
         }
