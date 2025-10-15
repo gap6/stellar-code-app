@@ -11,7 +11,7 @@ import ContactPage from './pages/ContactPage';
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/stellar-code-app">
       <div className="min-h-screen flex flex-col bg-black text-white relative">
         <PlexusBackground />
         <Header />
